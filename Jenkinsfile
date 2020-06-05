@@ -28,5 +28,13 @@ pipeline {
                 }
             }
         }
+        
+        stage('Deployment Test (WAR)') {
+            steps {
+                withMaven(maven: 'maven_3_5_1'){
+                    bat 'mvn deploy'
+                }
+            }
+        }
     }
 }
